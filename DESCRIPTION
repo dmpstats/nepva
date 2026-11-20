@@ -1,0 +1,28 @@
+Package: nepva
+Type: Package
+Title: Population Viability Analysis for Seabird Populations
+Version: 4.18
+Authors@R: c(
+    person("Andrew", "Harwood", role = "cre",
+           email = "Andrew.Harwood@naturalengland.org.uk"),
+    person("Natural England", role = "cph")
+    )
+Description: Functions for population viability analysis (PVA) of seabird
+    populations using Leslie matrix models. Supports demographic and
+    environmental stochasticity, impact and mitigation scenarios, validation
+    against historical counts, and local and global sensitivity analyses.
+    Underpins the Natural England and JNCC seabird PVA Shiny tool.
+License: MIT
+URL: https://github.com/dmpstats/nepva
+BugReports: https://github.com/dmpstats/nepva/issues
+Encoding: UTF-8
+Depends:
+    R (>= 3.5.0)
+Imports:
+    graphics,
+    grDevices,
+    mvtnorm,
+    popbio,
+    stats,
+    utils
+Config/roxygen2/version: 8.0.0
