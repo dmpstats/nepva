@@ -12,31 +12,16 @@
 #' @import shinyWidgets
 npva <- function(...) {
    # Read and reformat the input data
-   sourcepop.ref <<- "National"
-   svdat <<- read.csv(file.path(
-      "R/Rpackage",
-      "lookup-surv.csv",
-      fsep = .Platform$file.sep
-   ))
-   svdat <<- svdat[svdat$Source != "", ]
-   lookup <<- list(
-      Spmeta = read.csv(file.path(
-         "R/Rpackage",
-         "lookup-spmeta.csv",
-         fsep = .Platform$file.sep
-      )),
-      BS = read.csv(file.path(
-         "R/Rpackage",
-         "lookup-BS.csv",
-         fsep = .Platform$file.sep
-      )),
+   sourcepop.ref <- "National"
+   svdat <- lookup_surv
+   svdat <- svdat[svdat$Source != "", ]
+   lookup <- list(
+      Spmeta = lookup_spmeta,
+      BS = lookup_BS,
       Surv = svdat
    )
-   modeoptions <<- read.csv(file.path(
-      "R/Rpackage",
-      "ModeOptions.csv",
-      fsep = .Platform$file.sep
-   ))
+
+   modeoptions <- ModeOptions
 
    # Version numbers
    pva_ver <- 4.18
