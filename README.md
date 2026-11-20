@@ -1,12 +1,19 @@
 # Natural England and JNCC Seabird PVA Tool
 
+> [!IMPORTANT]
+> This repository is a fork of the original Seabird PVA Tool (naturalengland/nepva). Its purpose is to make the PVA core functions easier to use in standard R sessions.
+>
+>The code has been restructured as an R package, `nepva`, which can be installed and called from other R projects. The changes include adding DESCRIPTION and NAMESPACE files, moving the core functions into `R/`, and bundling the lookup data as package data. The package still includes the Shiny front end, which works as before locally or when published to a hosting service, while the back-end functions are now easier to load and use in R, with correct namespacing.
+>
+> Upstream updates are brought in by syncing, and improvements can be contributed back to the original repository.
+
 ## Project description
 
 A suite of R functions which operate as an R package (nepva R package) designed to undertake population viability analysis (PVA) for seabird species. This R package underpins the functionality of the user-friendly web-based Shiny tool which implements a subset of the functionality available within the R package. The Shiny tool provides an interactive web-based mechanism for users to provide inputs to the R package, and to display and save the results obtained by running the R package (without the need for users to install or use R).
 
 The PVA Tool is motivated by the use of PVAs to assess the impacts of proposed offshore renewable energy developments (ORDs) upon seabird populations, but the functionality within the package is sufficiently general that the package could also be used for assessing the population-level consequences of other anthropogenic activities that impact on population demographic rates, and for assessing impacts upon non-seabird species.
 
-The tool allows the assessment of any type of impact in terms of a change to demographic rates, or as a cull or harvest of a fixed size per year. Impacts may also be positive, meaning that mitigation or conservation measures aimed at increasing demographic rates may also be modelled. The tool allows users to conduct PVAs at a range of scales (breeding colony to SPA or region). 
+The tool allows the assessment of any type of impact in terms of a change to demographic rates, or as a cull or harvest of a fixed size per year. Impacts may also be positive, meaning that mitigation or conservation measures aimed at increasing demographic rates may also be modelled. The tool allows users to conduct PVAs at a range of scales (breeding colony to SPA or region).
 The tool can also be used to produce “historical” PVAs, for validation purposes, where outputs can be assessed against validation counts, or to undertake sensitivity analyses.
 
 The online version of the PVA Shiny tool is now hosted on shinyapps.io and can be accessed via this link (the tool works best in a Chrome browser):
@@ -14,7 +21,7 @@ https://natural-england.shinyapps.io/NE_PVA_Tool/
 
 To download and use the latest version of the tool offline, please use the green (<> Code) button above.
 
-**Please note that currently whenever the Shiny tool is updated this URL changes and therefore, we advise users to always access the tool from this repository rather than relying on bookmarks.** 
+**Please note that currently whenever the Shiny tool is updated this URL changes and therefore, we advise users to always access the tool from this repository rather than relying on bookmarks.**
 
 ## Processing scripts
 
@@ -26,13 +33,13 @@ This is **tool v 2.0 (nepva R package: v 4.18 Interface: v 1.7)**. This is the m
 
 Whilst default model parameters are provided for specific bird species within the repository, these can be replaced by user defined values within the R package or Shiny tool and are not required to run the tool.
 
-The sources and methods used to derive the default parameters, provided in look up tables and used within the R package and Shiny tool are detailed within the relevant documentation and metadata provided within the repository. These suggested default parameters may be subject to periodical updates as new empirical evidence becomes available. Any updates will be subject to agreement with Natural England and will be recorded as an update to the repository. 
+The sources and methods used to derive the default parameters, provided in look up tables and used within the R package and Shiny tool are detailed within the relevant documentation and metadata provided within the repository. These suggested default parameters may be subject to periodical updates as new empirical evidence becomes available. Any updates will be subject to agreement with Natural England and will be recorded as an update to the repository.
 
 Suggested default parameters were estimated as follows. A single age at first breeding and maximum brood size for each species was derived from Horswill & Robinson (2015).  Default survival rates (mean and standard deviation) are recalculated from the source data used in Horswill & Robinson (2015), and are taken to be the estimates for the ‘National’ survival rate or, where available, colony-level estimates are provided. All breeding success (productivity rates per pair) data, across eight regional classifications, were produced using a 2018 snapshot of the JNCC’s Seabird Monitoring Programme (SMP) dataset and following the methods of Horswill & Robinson (2015). Please refer to the PVA Tool Rpackage Guidance documentation for more detail.
 
 The tool produces a variety of outputs including the mean, median and standard deviation of projected population sizes under the input scenarios, counterfactuals of population growth rate and population size (based on impacted and unimpacted scenarios), annualised population growth rate since the “baseline reference year”, overall population growth since the “baseline reference year” and percentage population change since the “baseline reference year”. The units for output (e.g. breeding adults, breeding pairs or whole population) can also be specified by the user.
 
-The Shiny tool provides tabular and graphical representations of the results of the model runs and also produces a log file that records the parameters and options selected by the user to derive the results.  
+The Shiny tool provides tabular and graphical representations of the results of the model runs and also produces a log file that records the parameters and options selected by the user to derive the results.
 
 ## Copyright and Licence
 
@@ -40,21 +47,21 @@ The PVA Tool is published by Natural England under the MIT Licence. Please refer
 
 ## Ethics statement
 
-Natural England have completed and submitted the UK Statistics Authority Ethics Self-Assessment Tool for this project. No major ethical considerations were identified. A copy of the completed Self-Assessment form is provided within the Documentation. 
+Natural England have completed and submitted the UK Statistics Authority Ethics Self-Assessment Tool for this project. No major ethical considerations were identified. A copy of the completed Self-Assessment form is provided within the Documentation.
 
 ## Acknowledgements
 
-This code and Shiny tool were developed by Biomathematics and Statistics Scotland (BioSS) and UK Centre for Ecology and Hydrology (UKCEH) under contracts for Natural England and JNCC. 
+This code and Shiny tool were developed by Biomathematics and Statistics Scotland (BioSS) and UK Centre for Ecology and Hydrology (UKCEH) under contracts for Natural England and JNCC.
 
 We are also grateful to all those that have identified issues with the tool that have led to relevant fixes or improvements to the code.
 
 ## References
 
-Horswill, C. & Robinson R. A. 2015. Review of seabird demographic rates and density dependence. JNCC Report No. 552. Joint Nature Conservation Committee, Peterborough. Available [here](https://data.jncc.gov.uk/data/897c2037-56d0-42c8-b828-02c0c9c12d13/JNCC-Report-552-REVISED-WEB.pdf). 
+Horswill, C. & Robinson R. A. 2015. Review of seabird demographic rates and density dependence. JNCC Report No. 552. Joint Nature Conservation Committee, Peterborough. Available [here](https://data.jncc.gov.uk/data/897c2037-56d0-42c8-b828-02c0c9c12d13/JNCC-Report-552-REVISED-WEB.pdf).
 
 ## Contact information
 
-Please raise a new issue if you have any concerns with the code supplied within this repository or how it has been implemented. For further information, or if you have any queries, please contact the repository manager Andrew Harwood at Natural England (email: Andrew.Harwood@naturalengland.org.uk). 
+Please raise a new issue if you have any concerns with the code supplied within this repository or how it has been implemented. For further information, or if you have any queries, please contact the repository manager Andrew Harwood at Natural England (email: Andrew.Harwood@naturalengland.org.uk).
 
 ## Documentation
 
@@ -64,7 +71,7 @@ The Natural England Commissioned Report for the original (Version 1) development
 
 The JNCC report for the project which undertook testing of the tool, review of the R package code, along with some tool updates (Version 2) can be accessed [here](https://hub.jncc.gov.uk/assets/302a7a51-fe29-4633-95d1-b3ef458cb79a).
 
-## Examples of recent research utilising the 'nepva' package 
+## Examples of recent research utilising the 'nepva' package
 
 Hereward, H.F.R., Macgregor, C.J., Gabb, O., Connell, A., Thomas, R.J., Cross, A.V. & Taylor, R.C. (2024). Modelling population-level impacts of wind farm collision risk on Welsh Red Kites. BTO Research Report 766, BTO, Thetford, UK.
 
@@ -76,4 +83,3 @@ Langlois Lopez, S., Daunt, F., Wilson, J., O'Hanlon, N. J., Searle, K. R., Benne
 Macgregor, C.J., Boersch-Supan, P.H., Burton, N.H.K., Carss, D.N., Newson, S.E., Pearce-Higgins, J.W., Robinson, R.A., & Taylor, R.C. (2022). Informing decisions on lethal control of great cormorant and goosander in Wales: scenarios from Population Viability Analysis. NRW Evidence Report Series (No. 615)
 
 Merrall, E., Green, J. A., Robinson, L. A., Butler, A., Wood, M. J., Newell, M. A., Black, J., Daunt, F., & Horswill, C. (2024). Incorporating density-dependent regulation into impact assessments for seabirds. Journal of Applied Ecology, 61, 2510–2524. https://doi.org/10.1111/1365-2664.14750
-
