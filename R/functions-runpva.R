@@ -184,7 +184,7 @@ nepva.sim <- function(fn.sim.con, fn.sim.unc, ddfn,
 
         ## Version 0.6: removed "pnorm"
 
-        ru.base[i,j,,] <- rmvnorm(sim.n, sigma=demobase.cormat)
+        ru.base[i,j,,] <- mvtnorm::rmvnorm(sim.n, sigma=demobase.cormat)
       }
     }
   }

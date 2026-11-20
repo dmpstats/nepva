@@ -6,17 +6,10 @@
 ## Author: BioSS
 ## ########################################################################################
 
-# # These R packages are required for the shiny interface
-# library(shiny)
-# library(shinyjs)
-# library(shinydashboard)
-# library(shinyWidgets)
-# library(DT)
-# library(plotly)
-# library(rmarkdown)
-# library(dplyr)
-# library(tidyr)
-
+#' @import shiny
+#' @import shinyjs
+#' @import shinydashboard
+#' @import shinyWidgets
 npva <- function(...) {
    # Read and reformat the input data
    sourcepop.ref <<- "National"
@@ -1625,7 +1618,7 @@ npva <- function(...) {
                      solidHeader = FALSE,
                      collapsible = FALSE,
                      collapsed = FALSE,
-                     column(width = 12, plotlyOutput("pva_plot_01"))
+                     column(width = 12, plotly::plotlyOutput("pva_plot_01"))
                   )
                ),
                conditionalPanel(
@@ -1638,7 +1631,7 @@ npva <- function(...) {
                      solidHeader = FALSE,
                      collapsible = FALSE,
                      collapsed = TRUE,
-                     column(width = 12, plotlyOutput("pva_plot_sl_all"))
+                     column(width = 12, plotly::plotlyOutput("pva_plot_sl_all"))
                   )
                ),
                conditionalPanel(
@@ -1654,7 +1647,7 @@ npva <- function(...) {
                      column(
                         width = 12,
                         htmlOutput("M1_text"),
-                        plotlyOutput("pva_plot_M1")
+                        plotly::plotlyOutput("pva_plot_M1")
                      )
                   )
                ),
@@ -1671,7 +1664,7 @@ npva <- function(...) {
                      column(
                         width = 12,
                         htmlOutput("M2_text"),
-                        plotlyOutput("pva_plot_M2")
+                        plotly::plotlyOutput("pva_plot_M2")
                      )
                   )
                )
@@ -2944,14 +2937,14 @@ npva <- function(...) {
                      )
                   )
                ),
-               initComplete = JS(
+               initComplete = DT::JS(
                   "function(settings, json) {",
                   "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
                   "}"
                )
             )
          ) %>%
-            formatRound(
+            DT::formatRound(
                c(
                   "QuantileUNIMP50pcIMP",
                   "QuantileIMP50pcUNIMP",
@@ -2960,7 +2953,7 @@ npva <- function(...) {
                ),
                1
             ) %>%
-            formatSignif(c("CGR_Median", "CPS_Median"), 3)
+            DT::formatSignif(c("CGR_Median", "CPS_Median"), 3)
       })
 
       # METRIC TPS_YR (M7)
@@ -2996,7 +2989,7 @@ npva <- function(...) {
                      )
                   )
                ),
-               initComplete = JS(
+               initComplete = DT::JS(
                   "function(settings, json) {",
                   "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
                   "}"
@@ -3044,7 +3037,7 @@ npva <- function(...) {
                      )
                   )
                ),
-               initComplete = JS(
+               initComplete = DT::JS(
                   "function(settings, json) {",
                   "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
                   "}"
@@ -3099,19 +3092,19 @@ npva <- function(...) {
                      )
                   )
                ),
-               initComplete = JS(
+               initComplete = DT::JS(
                   "function(settings, json) {",
                   "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
                   "}"
                )
             ),
-            # callback = JS("var tips = ['tooltip1', 'tooltip2', 'tooltip3', 'tooltip4', 'tooltip5'],
+            # callback = DT::JS("var tips = ['tooltip1', 'tooltip2', 'tooltip3', 'tooltip4', 'tooltip5'],
             #                    firstRow = $('#resultstableB thead tr th');
             #                    for (var i = 0; i < tips.length; i++) {
             #                      $(firstRow[i]).attr('title', tips[i]);
             #                    }"),
          ) %>%
-            formatRound(
+            DT::formatRound(
                c(
                   "Popsize_Median",
                   "Popsize_2.5%_quantile",
@@ -3119,11 +3112,11 @@ npva <- function(...) {
                ),
                0
             ) %>%
-            formatRound(
+            DT::formatRound(
                c("Annual_GR_Median", "Annual_GR_LCI", "Annual_GR_UCI"),
                3
             ) %>%
-            formatRound(
+            DT::formatRound(
                c(
                   "pc_Pop_Change_Median",
                   "pc_Pop_Change_LCI",
@@ -3169,14 +3162,14 @@ npva <- function(...) {
                         )
                      )
                   ),
-                  initComplete = JS(
+                  initComplete = DT::JS(
                      "function(settings, json) {",
                      "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
                      "}"
                   )
                )
             ) %>%
-               formatRound(
+               DT::formatRound(
                   paste(
                      "Popsize",
                      c(
@@ -3206,7 +3199,7 @@ npva <- function(...) {
                   ),
                   0
                ) %>%
-               formatRound(
+               DT::formatRound(
                   c(
                      "Annual_GR_Median",
                      "Annual_GR_Mean",
@@ -3215,7 +3208,7 @@ npva <- function(...) {
                   ),
                   3
                ) %>%
-               formatRound(
+               DT::formatRound(
                   c(
                      "pc_Pop_Change_Median",
                      "pc_Pop_Change_Mean",
@@ -3228,7 +3221,7 @@ npva <- function(...) {
                   ),
                   1
                ) %>%
-               formatSignif(
+               DT::formatSignif(
                   c(
                      "Annual_GR_SD",
                      "CGR_SD",
@@ -3238,7 +3231,7 @@ npva <- function(...) {
                   ),
                   2
                ) %>%
-               formatSignif(
+               DT::formatSignif(
                   c(
                      "CGR_Median",
                      "CGR_Mean",
@@ -3271,9 +3264,9 @@ npva <- function(...) {
             owd <- setwd(tempdir())
             on.exit(setwd(owd))
             file.copy(src, 'NEPVAlog.Rmd', overwrite = TRUE)
-            out <- render(
+            out <- rmarkdown::render(
                'NEPVAlog.Rmd',
-               output_format = word_document(),
+               output_format = rmarkdown::word_document(),
                params = list(
                   d = Sys.time(),
                   ui_ver = ui_ver,
@@ -3288,7 +3281,7 @@ npva <- function(...) {
       # Charts with plotly ---------------------------------------------------------------------------
 
       # Main metric plot
-      output$pva_plot_01 <- renderPlotly({
+      output$pva_plot_01 <- plotly::renderPlotly({
          req(class(rv$results) == 'data.frame')
          req(
             input$run_type == "simplescenarios" | input$run_type == "validation"
@@ -3373,8 +3366,8 @@ npva <- function(...) {
                )
          }
 
-         plotly_pva <- ggplotly(gg_pva, autosize = T, height = 600) %>%
-            layout(
+         plotly_pva <- plotly::ggplotly(gg_pva, autosize = T, height = 600) %>%
+            plotly::layout(
                yaxis = list(tickmode = "auto", autorange = TRUE),
                margin = list(t = 100, r = 100, l = 100, unit = "pt")
             )
@@ -3383,7 +3376,7 @@ npva <- function(...) {
       ## Sensitivity chart
       ## #**DL**
 
-      output$pva_plot_sl_all <- renderPlotly({
+      output$pva_plot_sl_all <- plotly::renderPlotly({
          req(class(rv$results) == 'data.frame')
          req(input$run_type == "sensitivity.local")
 
@@ -3399,12 +3392,12 @@ npva <- function(...) {
          }
 
          baselinerun <- tabledata[tabledata$parname == "standard", ] %>%
-            slice(rep(1:n(), each = nlevels(tabledata$parname)))
+            dplyr::slice(rep(1:dplyr::n(), each = nlevels(tabledata$parname)))
          baselinerun$parname <- levels(tabledata$parname)
 
          baselinerun <- baselinerun %>%
-            mutate(
-               pcchange = case_when(
+            dplyr::mutate(
+               pcchange = dplyr::case_when(
                   pcchange.inipop.vals == 0 ~ pcchange.inipop.vals,
                   pcchange.demobase.prod.mean ==
                      0 ~ pcchange.demobase.prod.mean,
@@ -3415,8 +3408,8 @@ npva <- function(...) {
                      0 ~ pcchange.impact.survadult.mean
                )
             ) %>%
-            filter(parname != "standard") %>%
-            select(
+            dplyr::filter(parname != "standard") %>%
+            dplyr::select(
                parname,
                pcchange,
                CGR_Median,
@@ -3426,11 +3419,11 @@ npva <- function(...) {
                Quasi_Extinction,
                pc_ImpSims_above_TPS
             ) %>%
-            gather(key, value = "Metric", CGR_Median:pc_ImpSims_above_TPS)
+            tidyr::gather(key, value = "Metric", CGR_Median:pc_ImpSims_above_TPS)
 
          tabledata <- tabledata %>%
-            mutate(
-               pcchange = case_when(
+            dplyr::mutate(
+               pcchange = dplyr::case_when(
                   pcchange.inipop.vals != 0 ~ pcchange.inipop.vals,
                   pcchange.demobase.prod.mean !=
                      0 ~ pcchange.demobase.prod.mean,
@@ -3441,8 +3434,8 @@ npva <- function(...) {
                      0 ~ pcchange.impact.survadult.mean
                )
             ) %>%
-            filter(parname != "standard") %>%
-            select(
+            dplyr::filter(parname != "standard") %>%
+            dplyr::select(
                parname,
                pcchange,
                CGR_Median,
@@ -3452,7 +3445,7 @@ npva <- function(...) {
                Quasi_Extinction,
                pc_ImpSims_above_TPS
             ) %>%
-            gather(key, value = "Metric", CGR_Median:pc_ImpSims_above_TPS)
+            tidyr::gather(key, value = "Metric", CGR_Median:pc_ImpSims_above_TPS)
 
          tabledata <- rbind(tabledata, baselinerun)
          levels(tabledata$parname) <- c(
@@ -3502,15 +3495,15 @@ npva <- function(...) {
             ylab(NULL) +
             ggtitle("\n\n")
 
-         plotly_pva <- ggplotly(gg_pva, autosize = T, height = 1100) %>%
-            layout(
+         plotly_pva <- plotly::ggplotly(gg_pva, autosize = T, height = 1100) %>%
+            plotly::layout(
                legend = list(orientation = "v", x = 0.35, y = -0.3),
                margin = list(t = 100, b = 100, r = 110, l = 90, unit = "pt")
             )
       })
 
       ## Counterfactual of Population Growth Rate plot
-      output$pva_plot_M1 <- renderPlotly({
+      output$pva_plot_M1 <- plotly::renderPlotly({
          req(class(rv$results) == 'data.frame')
          req(input$run_type == 'simplescenarios')
          req(input$nscen > 0)
@@ -3578,8 +3571,8 @@ npva <- function(...) {
                ylab("CGR (median and confidence interval) \n\n") +
                ggtitle("Counterfactual of Population Growth Rate")
 
-            plotly_pva <- ggplotly(gg_pva_p1, autosize = T, height = 600) %>%
-               layout(
+            plotly_pva <- plotly::ggplotly(gg_pva_p1, autosize = T, height = 600) %>%
+               plotly::layout(
                   yaxis = list(tickmode = "auto", autorange = TRUE),
                   margin = list(t = 100, r = 110, l = 90, unit = "pt")
                )
@@ -3590,12 +3583,12 @@ npva <- function(...) {
                   "When subpopulations have different impacts, charts cannot be drawn (see Report for details)"
                )
             })
-            plotly_pva <- ggplotly(ggplot() + theme_bw())
+            plotly_pva <- plotly::ggplotly(ggplot() + theme_bw())
          }
       })
 
       ## Counterfactual of population size (Metric M2)
-      output$pva_plot_M2 <- renderPlotly({
+      output$pva_plot_M2 <- plotly::renderPlotly({
          req(class(rv$results) == 'data.frame')
          req(input$run_type == 'simplescenarios')
          req(input$nscen > 0)
@@ -3664,8 +3657,8 @@ npva <- function(...) {
                ylab("CPS (median and confidence interval) \n\n") +
                ggtitle("Counterfactual of Population Size")
 
-            plotly_pva <- ggplotly(gg_pva_p2, autosize = T, height = 600) %>%
-               layout(
+            plotly_pva <- plotly::ggplotly(gg_pva_p2, autosize = T, height = 600) %>%
+               plotly::layout(
                   yaxis = list(tickmode = "auto", autorange = TRUE),
                   margin = list(t = 100, r = 110, l = 90, unit = "pt")
                )
@@ -3676,7 +3669,7 @@ npva <- function(...) {
                   "When subpopulations have different impacts, charts cannot be drawn (see Report for details)"
                )
             })
-            plotly_pva <- ggplotly(ggplot() + theme_bw())
+            plotly_pva <- plotly::ggplotly(ggplot() + theme_bw())
          }
       })
 

@@ -19,10 +19,23 @@ Encoding: UTF-8
 Depends:
     R (>= 3.5.0)
 Imports:
+    DT,
+    dplyr,
+    ggplot2,
     graphics,
     grDevices,
+    grid,
+    htmltools,
+    magrittr,
     mvtnorm,
+    plotly,
     popbio,
+    rmarkdown,
+    shiny,
+    shinyWidgets,
+    shinydashboard,
+    shinyjs,
     stats,
+    tidyr,
     utils
 Config/roxygen2/version: 8.0.0

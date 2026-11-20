@@ -261,7 +261,7 @@ nepva.preprocess <- function(inputs, demomods){
       ## ##############################
       ## Find the stable age structure
 
-      ssv <- stable.stage(mmat)
+      ssv <- popbio::stable.stage(mmat)
 
       ## ##############################
       ## Find amounts to rescale initial values by
