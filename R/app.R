@@ -6,38 +6,27 @@
 ## Author: BioSS
 ## ########################################################################################
 
-# These R packages are required for the shiny interface
-library(shiny)
-library(shinyjs)
-library(shinydashboard)
-library(shinyWidgets)
-library(DT)
-library(plotly)
-library(rmarkdown)
-library(dplyr)
-library(tidyr)
+# # These R packages are required for the shiny interface
+# library(shiny)
+# library(shinyjs)
+# library(shinydashboard)
+# library(shinyWidgets)
+# library(DT)
+# library(plotly)
+# library(rmarkdown)
+# library(dplyr)
+# library(tidyr)
 
-# These R packages are required for the underlying PVA code
-library(popbio)
 
-# The functions
-source(file.path("Rpackage","functions-highlevel.R",fsep=.Platform$file.sep))
-source(file.path("Rpackage","functions-maincalcs.R",fsep=.Platform$file.sep))
-source(file.path("Rpackage","functions-sensitivity.R",fsep=.Platform$file.sep))
-source(file.path("Rpackage","functions-preprocessing.R",fsep=.Platform$file.sep))
-source(file.path("Rpackage","functions-runpva.R",fsep=.Platform$file.sep))
-source(file.path("Rpackage","functions-models.R",fsep=.Platform$file.sep))
-source("busy-indicator.R")
-source("shiny-helptext.R")
-source("shiny-helpers.R")
+npva <- function(...) {
 
-# Read and reformat the input data
+ # Read and reformat the input data
 sourcepop.ref <<- "National"
-svdat <<- read.csv(file.path("Rpackage","lookup-surv.csv",fsep=.Platform$file.sep))
+svdat <<- read.csv(file.path("R/Rpackage","lookup-surv.csv",fsep=.Platform$file.sep))
 svdat <<- svdat[svdat$Source != "",]
-lookup <<- list(Spmeta = read.csv(file.path("Rpackage","lookup-spmeta.csv",fsep=.Platform$file.sep)),
-   BS = read.csv(file.path("Rpackage","lookup-BS.csv",fsep=.Platform$file.sep)), Surv = svdat)
-modeoptions <<- read.csv(file.path("Rpackage","ModeOptions.csv",fsep=.Platform$file.sep))
+lookup <<- list(Spmeta = read.csv(file.path("R/Rpackage","lookup-spmeta.csv",fsep=.Platform$file.sep)),
+   BS = read.csv(file.path("R/Rpackage","lookup-BS.csv",fsep=.Platform$file.sep)), Surv = svdat)
+modeoptions <<- read.csv(file.path("R/Rpackage","ModeOptions.csv",fsep=.Platform$file.sep))
 
 # Version numbers
 pva_ver <- 4.18
@@ -832,8 +821,8 @@ ui <- dashboardPage(skin = "green",
                                                     colony to SPA or wider region), and for non-seabird species."),
                                             tags$h4("The tool produces a range of tabular and graphical outputs for interpreting outputs from PVAs, and a
                                                     facility for using pre-set demographic rates for a number of seabird species, based on currently available demographic data."),
-                                            tags$h4("Please be advised that users should refer to the most recent guidance on the GitHub site prior to running the tool 
-                                                   (see documentation box below). The guidance in the appendices of the original Natural England commissioned report 
+                                            tags$h4("Please be advised that users should refer to the most recent guidance on the GitHub site prior to running the tool
+                                                   (see documentation box below). The guidance in the appendices of the original Natural England commissioned report
                                                    (NECR274 edition 1 A Population Viability Analysis Modelling Tool for Seabird Species) is superseded by this and should no longer be used."))
                      ),
                      fluidRow(
@@ -2780,5 +2769,7 @@ server <- function(input, output, session) {
 # Run the application
 # ##############################################################################
 
+
 shinyApp(ui = ui, server = server)
 
+}
