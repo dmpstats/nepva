@@ -9,7 +9,7 @@
 #' @import shiny
 #' @import shinyjs
 #' @import shinydashboard
-#' @import shinyWidgets
+#' @import ggplot2
 npva <- function(...) {
    # Read and reformat the input data
    sourcepop.ref <- "National"
@@ -3957,7 +3957,7 @@ npva <- function(...) {
                      )
                   },
                   warning = function(war) {
-                     sendSweetAlert(
+                     shinyWidgets::sendSweetAlert(
                         session,
                         title = "Something went wrong",
                         text = war,
@@ -3969,7 +3969,7 @@ npva <- function(...) {
                      #return("No data available")
                   },
                   error = function(err) {
-                     sendSweetAlert(
+                     shinyWidgets::sendSweetAlert(
                         session,
                         title = "Something went wrong",
                         text = err,
@@ -4033,7 +4033,7 @@ npva <- function(...) {
                      )
                   },
                   warning = function(war) {
-                     sendSweetAlert(
+                     shinyWidgets::sendSweetAlert(
                         session,
                         title = "Validation: Something went wrong",
                         text = war,
@@ -4045,7 +4045,7 @@ npva <- function(...) {
                      #return("No data available")
                   },
                   error = function(err) {
-                     sendSweetAlert(
+                     shinyWidgets::sendSweetAlert(
                         session,
                         title = "Validation: Something went wrong",
                         text = err,
@@ -4098,7 +4098,7 @@ npva <- function(...) {
                      )
                   },
                   warning = function(war) {
-                     sendSweetAlert(
+                     shinyWidgets::sendSweetAlert(
                         session,
                         title = "Sensitivity: Something went wrong",
                         text = war,
@@ -4110,7 +4110,7 @@ npva <- function(...) {
                      #return("No data available")
                   },
                   error = function(err) {
-                     sendSweetAlert(
+                     shinyWidgets::sendSweetAlert(
                         session,
                         title = "Sensitivity: Something went wrong",
                         text = err,
@@ -4133,7 +4133,7 @@ npva <- function(...) {
                rv$results <- change.table.names(rv$results)
             }
 
-            sendSweetAlert(
+            shinyWidgets::sendSweetAlert(
                session,
                title = "Finished",
                text = "See Table and Charts tab for results (log file is being written now)",
