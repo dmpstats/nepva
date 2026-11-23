@@ -1,11 +1,10 @@
 Package: nepva
 Type: Package
 Title: Population Viability Analysis for Seabird Populations
-Version: 4.18
+Version: 2.0.0.9000
 Authors@R: c(
-    person("Andrew", "Harwood", role = "cre",
-           email = "Andrew.Harwood@naturalengland.org.uk"),
-    person("Natural England", role = "cph")
+    person("Adam", "Butler", role = "cre",  email = "adam.butler@bioss.ac.uk"),
+    person("Deena", "Mobbs", role = "aut", email = "deena.mobbs@bioss.ac.uk")
     )
 Description: Functions for population viability analysis (PVA) of seabird
     populations using Leslie matrix models. Supports demographic and
