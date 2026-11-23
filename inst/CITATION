@@ -1,0 +1,13 @@
+bibentry(
+  bibtype = "TechReport",
+  title = "A Population Viability Analysis Modelling Tool for Seabird Species. Centre for Ecology & Hydrology report for Natural England. Natural England Commissioned Report NECR274.",
+  author = c(
+    person("Kate", "Searle", role = "aut", email = "katrle@ceh.ac.uk"),
+    person("Francis", "Daunt", role = "aut"),
+    person("Deena", "Mobbs", role = "aut", email = "deena.mobbs@bioss.ac.uk"),
+    person("Adam", "Butler", role = "aut", email = "adam.butler@bioss.ac.uk")
+  ),
+  institution = "Natural England",
+  url = "https://nora.nerc.ac.uk/id/eprint/539313/1/N539313CR.pdf",
+  year = "2022"
+)
