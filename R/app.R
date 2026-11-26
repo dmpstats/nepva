@@ -21,8 +21,6 @@ npva <- function(...) {
       Surv = svdat
    )
 
-   modeoptions <- ModeOptions
-
    # Version numbers
    pva_ver <- 4.18
    ui_ver <- 1.7
@@ -148,7 +146,7 @@ npva <- function(...) {
                         width = 4,
                         solidHeader = TRUE,
                         collapsible = FALSE,
-                        footer = actionBttn(
+                        footer = shinyWidgets::actionBttn(
                            "resetALL",
                            label = "Reset all parameters",
                            style = "gradient",
@@ -166,7 +164,7 @@ npva <- function(...) {
                         ),
 
                         # Run_type
-                        prettyRadioButtons(
+                        shinyWidgets::prettyRadioButtons(
                            "run_type",
                            label = "Choose type:",
                            choices = c(
@@ -205,7 +203,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -216,7 +214,7 @@ npva <- function(...) {
                         ),
 
                         # model_envstoch envmodels <- c("deterministic", "betagamma", "logitnlogn")
-                        prettyRadioButtons(
+                        shinyWidgets::prettyRadioButtons(
                            "model_envstoch",
                            label = "Model to use for environmental stochasticity:",
                            choices = c(
@@ -231,7 +229,7 @@ npva <- function(...) {
                         ),
 
                         # model_envstoch
-                        prettyRadioButtons(
+                        shinyWidgets::prettyRadioButtons(
                            "model_dd",
                            label = "Choose model for density dependence:",
                            choices = c(
@@ -250,7 +248,7 @@ npva <- function(...) {
                            class = "swtextinline",
                            "Include demographic stochasticity in model?"
                         ),
-                        switchInput(
+                        shinyWidgets::switchInput(
                            "model_demostoch",
                            onLabel = "Yes",
                            onStatus = "success",
@@ -271,7 +269,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -358,7 +356,7 @@ npva <- function(...) {
                         width = 4,
                         solidHeader = TRUE,
                         collapsible = TRUE,
-                        footer = actionBttn(
+                        footer = shinyWidgets::actionBttn(
                            "resetBaselineTAB",
                            label = "Reset baseline parameters",
                            style = "gradient",
@@ -447,7 +445,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -478,7 +476,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -491,7 +489,7 @@ npva <- function(...) {
                            class = "swtextinline",
                            "Is there an upper constraint on productivity in the model?"
                         ),
-                        switchInput(
+                        shinyWidgets::switchInput(
                            "model_prodmax",
                            onLabel = "Yes",
                            onStatus = "success",
@@ -531,7 +529,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -559,7 +557,7 @@ npva <- function(...) {
                            class = "swtextinline",
                            "Are demographic rates applied separately to each subpopulation?"
                         ),
-                        switchInput(
+                        shinyWidgets::switchInput(
                            "demobase_splitpops",
                            onLabel = "Yes",
                            onStatus = "success",
@@ -578,7 +576,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -588,7 +586,7 @@ npva <- function(...) {
                            helptext$inputformat
                         ),
                         #iniagetypes <- c("breeding.adults", "breeding.pairs", "all.individuals")
-                        prettyRadioButtons(
+                        shinyWidgets::prettyRadioButtons(
                            "inipop_inputformat",
                            label = "Choose:",
                            choices = c(
@@ -611,7 +609,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -625,7 +623,7 @@ npva <- function(...) {
                            class = "swtextinline",
                            "Are baseline demographic rates specified separately for immatures?"
                         ),
-                        switchInput(
+                        shinyWidgets::switchInput(
                            "demobase_splitimmat",
                            onLabel = "Yes",
                            onStatus = "success",
@@ -848,7 +846,7 @@ npva <- function(...) {
                            solidHeader = TRUE,
                            collapsible = TRUE,
                            collapsed = FALSE,
-                           footer = dropdownButton(
+                           footer = shinyWidgets::dropdownButton(
                               circle = TRUE,
                               status = "info",
                               size = helpsize,
@@ -915,7 +913,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = actionBttn(
+                        footer = shinyWidgets::actionBttn(
                            "resetImpactTAB",
                            label = "Reset impact parameters",
                            style = "gradient",
@@ -944,7 +942,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -958,7 +956,7 @@ npva <- function(...) {
                            class = "swtextinline",
                            "Are impacts applied separately to each subpopulation?"
                         ),
-                        switchInput(
+                        shinyWidgets::switchInput(
                            "impacts_splitpops",
                            onLabel = "Yes",
                            onStatus = "success",
@@ -976,7 +974,7 @@ npva <- function(...) {
                            class = "swtextinline",
                            "Are impacts specified separately for immatures?"
                         ),
-                        switchInput(
+                        shinyWidgets::switchInput(
                            "impacts_splitimmat",
                            onLabel = "Yes",
                            onStatus = "success",
@@ -994,7 +992,7 @@ npva <- function(...) {
                            class = "swtextinline",
                            "Are standard errors of impacts available?"
                         ),
-                        switchInput(
+                        shinyWidgets::switchInput(
                            "impacts_provideses",
                            onLabel = "Yes",
                            onStatus = "success",
@@ -1012,7 +1010,7 @@ npva <- function(...) {
                            class = "swtextinline",
                            "Should random seeds be matched for impact scenarios?"
                         ),
-                        switchInput(
+                        shinyWidgets::switchInput(
                            "impacts_matchscens",
                            onLabel = "Yes",
                            onStatus = "success",
@@ -1032,7 +1030,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -1043,7 +1041,7 @@ npva <- function(...) {
                         ),
 
                         # "impacts_relative"
-                        prettyRadioButtons(
+                        shinyWidgets::prettyRadioButtons(
                            "impacts_relative",
                            label = "Impacts are specified as ",
                            choices = c(
@@ -1068,7 +1066,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -1283,7 +1281,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -1324,7 +1322,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -1334,7 +1332,7 @@ npva <- function(...) {
                            helptext$outputages
                         ),
 
-                        prettyRadioButtons(
+                        shinyWidgets::prettyRadioButtons(
                            "output_agetype",
                            label = "Choose",
                            choices = c(
@@ -1538,7 +1536,7 @@ npva <- function(...) {
                         solidHeader = TRUE,
                         collapsible = TRUE,
                         collapsed = FALSE,
-                        footer = dropdownButton(
+                        footer = shinyWidgets::dropdownButton(
                            circle = TRUE,
                            status = "info",
                            size = helpsize,
@@ -1924,16 +1922,16 @@ npva <- function(...) {
       # Specific to sensitivity run...
       observe({
          req(input$run_type == 'sensitivity.local')
-         updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
+         shinyWidgets::updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
          shinyjs::disable("model_dd")
          input$model_dd
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "inipop_inputformat",
             selected = "breeding.adults"
          )
          shinyjs::disable("inipop_inputformat")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "output_agetype",
             selected = "breeding.adults"
@@ -1942,13 +1940,13 @@ npva <- function(...) {
          updateNumericInput(session, "nscen", value = 1)
          shinyjs::disable("nscen")
          input$nscen
-         updateSwitchInput(
+         shinyWidgets::updateSwitchInput(
             session,
             "impacts_matchsens",
             value = TRUE,
             disabled = TRUE
          )
-         updateSwitchInput(
+         shinyWidgets::updateSwitchInput(
             session,
             "demobase_splitimmat",
             value = FALSE,
@@ -1968,7 +1966,7 @@ npva <- function(...) {
          input$model_dd
          shinyjs::enable("inipop_inputformat")
          shinyjs::enable("output_agetype")
-         updateSwitchInput(session, "demobase_splitimmat", disabled = FALSE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitimmat", disabled = FALSE)
          input$demobase_splitimmat
          shinyjs::enable("scn_nm_str_1")
       })
@@ -1979,11 +1977,11 @@ npva <- function(...) {
          shinyjs::enable("output_year_start")
          shinyjs::enable("npop")
          shinyjs::enable("nscen")
-         updateSwitchInput(session, "demobase_splitpops", disabled = FALSE)
-         updateSwitchInput(session, "impacts_splitpops", disabled = FALSE)
-         updateSwitchInput(session, "impacts_splitimmat", disabled = FALSE)
-         updateSwitchInput(session, "impacts_provideses", disabled = FALSE)
-         updateSwitchInput(session, "impacts_matchsens", disabled = FALSE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitpops", disabled = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitpops", disabled = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitimmat", disabled = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_provideses", disabled = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_matchsens", disabled = FALSE)
       })
       # ... and the reverse
       observe({
@@ -1994,23 +1992,23 @@ npva <- function(...) {
          updateNumericInput(session, "npop", value = 1)
          shinyjs::disable("npop")
          input$npop
-         updateSwitchInput(session, "demobase_splitpops", disabled = TRUE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitpops", disabled = TRUE)
          input$demobase_splitpops
-         updateSwitchInput(
+         shinyWidgets::updateSwitchInput(
             session,
             "impacts_splitpops",
             value = FALSE,
             disabled = TRUE
          )
          input$impacts_splitpops
-         updateSwitchInput(
+         shinyWidgets::updateSwitchInput(
             session,
             "impacts_splitimmat",
             value = FALSE,
             disabled = TRUE
          )
          input$impacts_splitimmat
-         updateSwitchInput(
+         shinyWidgets::updateSwitchInput(
             session,
             "impacts_provideses",
             value = FALSE,
@@ -2029,7 +2027,7 @@ npva <- function(...) {
             input$nscen
             shinyjs::enable("output_validation_box")
             shinyjs::show("output_validation_box")
-            updatePrettyRadioButtons(
+            shinyWidgets::updatePrettyRadioButtons(
                session,
                "impacts_relative",
                selected = "relative"
@@ -2037,7 +2035,7 @@ npva <- function(...) {
             shinyjs::disable("impacts_relative")
             updateSliderInput(session, "impacts_year", value = c(2200, 2202))
             shinyjs::disable("impacts_year")
-            updateSwitchInput(
+            shinyWidgets::updateSwitchInput(
                session,
                "impacts_matchsens",
                value = FALSE,
@@ -2056,14 +2054,14 @@ npva <- function(...) {
       observe({
          req(!errfn3a(input$npop))
          if (input$npop == 1) {
-            updateSwitchInput(
+            shinyWidgets::updateSwitchInput(
                session,
                "demobase_splitpops",
                value = FALSE,
                disabled = TRUE,
                offStatus = NULL
             )
-            updateSwitchInput(
+            shinyWidgets::updateSwitchInput(
                session,
                "impacts_splitpops",
                value = FALSE,
@@ -2072,13 +2070,13 @@ npva <- function(...) {
             )
          } else {
             if (input$run_type == 'simplescenarios') {
-               updateSwitchInput(
+               shinyWidgets::updateSwitchInput(
                   session,
                   "demobase_splitpops",
                   disabled = FALSE,
                   offStatus = "warning"
                )
-               updateSwitchInput(
+               shinyWidgets::updateSwitchInput(
                   session,
                   "impacts_splitpops",
                   disabled = FALSE,
@@ -2099,25 +2097,25 @@ npva <- function(...) {
          )
          if (input$nscen == 0) {
             shinyjs::disable("impacts_year")
-            updatePrettyRadioButtons(
+            shinyWidgets::updatePrettyRadioButtons(
                session,
                "impacts_relative",
                selected = "relative"
             )
             shinyjs::disable("impacts_relative")
             lapply(v, function(iv) {
-               updateSwitchInput(session, iv, disabled = TRUE)
+               shinyWidgets::updateSwitchInput(session, iv, disabled = TRUE)
             })
          } else {
             shinyjs::enable("impacts_year")
             shinyjs::enable("impacts_relative")
             lapply(v, function(iv) {
-               updateSwitchInput(session, iv, disabled = FALSE)
+               shinyWidgets::updateSwitchInput(session, iv, disabled = FALSE)
             })
             if (input$run_type != 'simplescenarios') {
-               updateSwitchInput(session, "impacts_splitpops", disabled = TRUE)
-               updateSwitchInput(session, "impacts_splitimmat", disabled = TRUE)
-               updateSwitchInput(session, "impacts_provideses", disabled = TRUE)
+               shinyWidgets::updateSwitchInput(session, "impacts_splitpops", disabled = TRUE)
+               shinyWidgets::updateSwitchInput(session, "impacts_splitimmat", disabled = TRUE)
+               shinyWidgets::updateSwitchInput(session, "impacts_provideses", disabled = TRUE)
             }
          }
       })
@@ -2494,7 +2492,7 @@ npva <- function(...) {
                   status <- "danger"
                }
             )
-            updateProgressBar(
+            shinyWidgets::updateProgressBar(
                session = session,
                id = "progress_bar",
                value = progress,
@@ -2553,7 +2551,7 @@ npva <- function(...) {
          ii <- (lookup$Spmeta$Species == input$species)
 
          ## Species-level metadata
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = lookup$Spmeta$MBS[ii])
          updateSliderInput(session, "afb", value = lookup$Spmeta$AFB[ii])
 
@@ -2654,7 +2652,7 @@ npva <- function(...) {
 
          # Wipe any previous numbers
          updateNumericInput(session, "npop", value = 1)
-         updateSwitchInput(session, "demobase_splitimmat", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitimmat", value = TRUE)
          updateNumericInput(session, "ad_mn_1", value = NA)
          updateNumericInput(session, "ad_sd_1", value = NA)
          for (i in 1:maxage) {
@@ -4152,21 +4150,21 @@ npva <- function(...) {
       observeEvent(input$case_studies, {
          req(input$case_studies == "Case study 1a")
          updateTextInput(session, "runrefname", value = "Case study 1a")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "run_type",
             selected = "simplescenarios"
          )
          updateSelectizeInput(session, "species", selected = "None")
          updateSelectizeInput(session, "testrun", selected = "None")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "model_envstoch",
             selected = "betagamma"
          )
-         updateSwitchInput(session, "model_demostoch", value = TRUE)
-         updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_demostoch", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = 2)
          updateSliderInput(session, "afb", value = 4)
          updateNumericInput(session, "npop", value = 2)
@@ -4174,8 +4172,8 @@ npva <- function(...) {
          updateNumericInput(session, "sim_n", value = 5000)
          updateNumericInput(session, "sim_seed", value = NA)
          updateNumericInput(session, "nburn", value = 0)
-         updateSwitchInput(session, "demobase_splitpops", value = TRUE)
-         updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitpops", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
          input$demobase_splitimmat
          updateNumericInput(session, "pr_mn_1", value = 0.58)
          updateNumericInput(session, "pr_mn_2", value = 0.39)
@@ -4205,20 +4203,20 @@ npva <- function(...) {
          updateNumericInput(session, "inipopyrs_2", value = 2017)
          updateNumericInput(session, "inipopval_1", value = 45504)
          updateNumericInput(session, "inipopval_2", value = 6031)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "inipop_inputformat",
             selected = "breeding.pairs"
          )
-         updateSwitchInput(session, "impacts_matchscens", value = TRUE)
-         updatePrettyRadioButtons(
+         shinyWidgets::updateSwitchInput(session, "impacts_matchscens", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "impacts_relative",
             selected = "relative"
          )
-         updateSwitchInput(session, "impacts_splitpops", value = FALSE)
-         updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
-         updateSwitchInput(session, "impacts_provideses", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitpops", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_provideses", value = FALSE)
          updateSliderInput(session, "impacts_year", value = c(2020, 2045))
          updateTextInput(session, "scn_nm_str_1", value = "Impact 50")
          updateTextInput(session, "scn_nm_str_2", value = "Impact 100")
@@ -4245,7 +4243,7 @@ npva <- function(...) {
          updateNumericInput(session, "imp_ad_se_3_1", value = NA)
          updateNumericInput(session, "imp_ad_se_4_1", value = NA)
          updateNumericInput(session, "imp_ad_se_5_1", value = NA)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "output_agetype",
             selected = "breeding.adults"
@@ -4260,21 +4258,21 @@ npva <- function(...) {
       observeEvent(input$case_studies, {
          req(input$case_studies == "Case study 1b")
          updateTextInput(session, "runrefname", value = "Case study 1b")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "run_type",
             selected = "simplescenarios"
          )
          updateSelectizeInput(session, "species", selected = "None")
          updateSelectizeInput(session, "testrun", selected = "None")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "model_envstoch",
             selected = "betagamma"
          )
-         updateSwitchInput(session, "model_demostoch", value = TRUE)
-         updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_demostoch", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = 2)
          updateSliderInput(session, "afb", value = 4)
          updateNumericInput(session, "npop", value = 2)
@@ -4282,8 +4280,8 @@ npva <- function(...) {
          updateNumericInput(session, "sim_n", value = 5000)
          updateNumericInput(session, "sim_seed", value = NULL)
          updateNumericInput(session, "nburn", value = 0)
-         updateSwitchInput(session, "demobase_splitpops", value = TRUE)
-         updateSwitchInput(session, "demobase_splitimmat", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitpops", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitimmat", value = TRUE)
          input$demobase_splitimmat
          updateNumericInput(session, "pr_mn_1", value = 0.58)
          updateNumericInput(session, "pr_mn_2", value = 0.39)
@@ -4325,20 +4323,20 @@ npva <- function(...) {
          updateNumericInput(session, "inipopyrs_2", value = 2017)
          updateNumericInput(session, "inipopval_1", value = 45504)
          updateNumericInput(session, "inipopval_2", value = 6031)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "inipop_inputformat",
             selected = "breeding.pairs"
          )
-         updateSwitchInput(session, "impacts_matchscens", value = TRUE)
-         updatePrettyRadioButtons(
+         shinyWidgets::updateSwitchInput(session, "impacts_matchscens", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "impacts_relative",
             selected = "relative"
          )
-         updateSwitchInput(session, "impacts_splitpops", value = FALSE)
-         updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
-         updateSwitchInput(session, "impacts_provideses", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitpops", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_provideses", value = FALSE)
          updateSliderInput(session, "impacts_year", value = c(2020, 2045))
          updateTextInput(session, "scn_nm_str_1", value = "Impact 50")
          updateTextInput(session, "scn_nm_str_2", value = "Impact 100")
@@ -4365,7 +4363,7 @@ npva <- function(...) {
          updateNumericInput(session, "imp_ad_se_3_1", value = NA)
          updateNumericInput(session, "imp_ad_se_4_1", value = NA)
          updateNumericInput(session, "imp_ad_se_5_1", value = NA)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "output_agetype",
             selected = "breeding.adults"
@@ -4380,21 +4378,21 @@ npva <- function(...) {
       observeEvent(input$case_studies, {
          req(input$case_studies == "Case study 1c")
          updateTextInput(session, "runrefname", value = "Case study 1c")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "run_type",
             selected = "simplescenarios"
          )
          updateSelectizeInput(session, "species", selected = "None")
          updateSelectizeInput(session, "testrun", selected = "None")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "model_envstoch",
             selected = "betagamma"
          )
-         updateSwitchInput(session, "model_demostoch", value = TRUE)
-         updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_demostoch", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = 2)
          updateSliderInput(session, "afb", value = 4)
          updateNumericInput(session, "npop", value = 2)
@@ -4402,8 +4400,8 @@ npva <- function(...) {
          updateNumericInput(session, "sim_n", value = 5000)
          updateNumericInput(session, "sim_seed", value = NULL)
          updateNumericInput(session, "nburn", value = 0)
-         updateSwitchInput(session, "demobase_splitpops", value = TRUE)
-         updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitpops", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
          input$demobase_splitimmat
          updateNumericInput(session, "pr_mn_1", value = 0.58)
          updateNumericInput(session, "pr_mn_2", value = 0.39)
@@ -4433,20 +4431,20 @@ npva <- function(...) {
          updateNumericInput(session, "inipopyrs_2", value = 2017)
          updateNumericInput(session, "inipopval_1", value = 45504)
          updateNumericInput(session, "inipopval_2", value = 6031)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "inipop_inputformat",
             selected = "breeding.pairs"
          )
-         updateSwitchInput(session, "impacts_matchscens", value = TRUE)
-         updatePrettyRadioButtons(
+         shinyWidgets::updateSwitchInput(session, "impacts_matchscens", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "impacts_relative",
             selected = "absolute"
          )
-         updateSwitchInput(session, "impacts_splitpops", value = FALSE)
-         updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
-         updateSwitchInput(session, "impacts_provideses", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitpops", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_provideses", value = FALSE)
          updateSliderInput(session, "impacts_year", value = c(2020, 2045))
          updateTextInput(session, "scn_nm_str_1", value = "Impact 50")
          updateTextInput(session, "scn_nm_str_2", value = "Impact 100")
@@ -4473,7 +4471,7 @@ npva <- function(...) {
          updateNumericInput(session, "imp_ad_se_3_1", value = NA)
          updateNumericInput(session, "imp_ad_se_4_1", value = NA)
          updateNumericInput(session, "imp_ad_se_5_1", value = NA)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "output_agetype",
             selected = "breeding.adults"
@@ -4488,21 +4486,21 @@ npva <- function(...) {
       observeEvent(input$case_studies, {
          req(input$case_studies == "Case study 1d")
          updateTextInput(session, "runrefname", value = "Case study 1d")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "run_type",
             selected = "simplescenarios"
          )
          updateSelectizeInput(session, "species", selected = "None")
          updateSelectizeInput(session, "testrun", selected = "None")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "model_envstoch",
             selected = "betagamma"
          )
-         updateSwitchInput(session, "model_demostoch", value = TRUE)
-         updatePrettyRadioButtons(session, "model_dd", selected = "dduloglin")
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_demostoch", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(session, "model_dd", selected = "dduloglin")
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = 2)
          updateSliderInput(session, "afb", value = 4)
          updateNumericInput(session, "npop", value = 2)
@@ -4510,8 +4508,8 @@ npva <- function(...) {
          updateNumericInput(session, "sim_n", value = 5000)
          updateNumericInput(session, "sim_seed", value = NA)
          updateNumericInput(session, "nburn", value = 0)
-         updateSwitchInput(session, "demobase_splitpops", value = TRUE)
-         updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitpops", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
          input$demobase_splitimmat
          updateNumericInput(session, "pr_mn_1", value = 0.58)
          updateNumericInput(session, "pr_mn_2", value = 0.39)
@@ -4541,20 +4539,20 @@ npva <- function(...) {
          updateNumericInput(session, "inipopyrs_2", value = 2017)
          updateNumericInput(session, "inipopval_1", value = 45504)
          updateNumericInput(session, "inipopval_2", value = 6031)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "inipop_inputformat",
             selected = "breeding.pairs"
          )
-         updateSwitchInput(session, "impacts_matchscens", value = TRUE)
-         updatePrettyRadioButtons(
+         shinyWidgets::updateSwitchInput(session, "impacts_matchscens", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "impacts_relative",
             selected = "relative"
          )
-         updateSwitchInput(session, "impacts_splitpops", value = FALSE)
-         updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
-         updateSwitchInput(session, "impacts_provideses", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitpops", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_provideses", value = FALSE)
          updateSliderInput(session, "impacts_year", value = c(2020, 2045))
          updateTextInput(session, "scn_nm_str_1", value = "Impact 50")
          updateTextInput(session, "scn_nm_str_2", value = "Impact 100")
@@ -4581,7 +4579,7 @@ npva <- function(...) {
          updateNumericInput(session, "imp_ad_se_3_1", value = NA)
          updateNumericInput(session, "imp_ad_se_4_1", value = NA)
          updateNumericInput(session, "imp_ad_se_5_1", value = NA)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "output_agetype",
             selected = "breeding.adults"
@@ -4598,19 +4596,19 @@ npva <- function(...) {
          updateTextInput(session, "runrefname", value = "Example")
          updateSelectizeInput(session, "case_studies", selected = "None")
          updateSelectizeInput(session, "species", selected = "None")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "run_type",
             selected = "simplescenarios"
          )
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "model_envstoch",
             selected = "betagamma"
          )
-         updateSwitchInput(session, "model_demostoch", value = TRUE)
-         updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_demostoch", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = 4)
          updateSliderInput(session, "afb", value = 5)
          updateNumericInput(session, "npop", value = 2)
@@ -4618,8 +4616,8 @@ npva <- function(...) {
          updateNumericInput(session, "sim_n", value = 10)
          updateNumericInput(session, "sim_seed", value = 43576)
          updateNumericInput(session, "nburn", value = 0)
-         updateSwitchInput(session, "demobase_splitpops", value = TRUE)
-         updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitpops", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
          input$demobase_splitimmat
          updateNumericInput(session, "pr_mn_1", value = 0.3)
          updateNumericInput(session, "pr_mn_2", value = 0.4)
@@ -4637,20 +4635,20 @@ npva <- function(...) {
          updateNumericInput(session, "inipopyrs_2", value = 2015)
          updateNumericInput(session, "inipopval_1", value = 791)
          updateNumericInput(session, "inipopval_2", value = 113)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "inipop_inputformat",
             selected = "breeding.pairs"
          )
-         updateSwitchInput(session, "impacts_matchscens", value = TRUE)
-         updatePrettyRadioButtons(
+         shinyWidgets::updateSwitchInput(session, "impacts_matchscens", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "impacts_relative",
             selected = "relative"
          )
-         updateSwitchInput(session, "impacts_splitpops", value = FALSE)
-         updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
-         updateSwitchInput(session, "impacts_provideses", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitpops", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_provideses", value = FALSE)
          updateSliderInput(session, "impacts_year", value = c(2035, 2055))
          updateTextInput(session, "scn_nm_str_1", value = "ice")
          updateTextInput(session, "scn_nm_str_2", value = "fish")
@@ -4661,7 +4659,7 @@ npva <- function(...) {
          updateNumericInput(session, "imp_ad_mn_1_1", value = 0.05)
          updateNumericInput(session, "imp_ad_mn_2_1", value = 0.12)
          updateNumericInput(session, "imp_ad_mn_3_1", value = 0.17)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "output_agetype",
             selected = "age.separated"
@@ -4678,15 +4676,15 @@ npva <- function(...) {
          updateTextInput(session, "runrefname", value = "Example")
          updateSelectizeInput(session, "case_studies", selected = "None")
          updateSelectizeInput(session, "species", selected = "None")
-         updatePrettyRadioButtons(session, "run_type", selected = "validation")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(session, "run_type", selected = "validation")
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "model_envstoch",
             selected = "betagamma"
          )
-         updateSwitchInput(session, "model_demostoch", value = TRUE)
-         updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_demostoch", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = 4)
          updateSliderInput(session, "afb", value = 5)
          updateNumericInput(session, "sim_n", value = 1000)
@@ -4698,7 +4696,7 @@ npva <- function(...) {
          updateNumericInput(session, "ad_sd_1", value = 0.02)
          updateNumericInput(session, "inipopyrs_1", value = 2001)
          updateNumericInput(session, "inipopval_1", value = 791)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "output_agetype",
             selected = "breeding.pairs"
@@ -4722,18 +4720,18 @@ npva <- function(...) {
          updateTextInput(session, "runrefname", value = "Example")
          updateSelectizeInput(session, "case_studies", selected = "None")
          updateSelectizeInput(session, "species", selected = "None")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "run_type",
             selected = "sensitivity.local"
          )
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "model_envstoch",
             selected = "betagamma"
          )
-         updateSwitchInput(session, "model_demostoch", value = TRUE)
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_demostoch", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = 4)
          updateSliderInput(session, "afb", value = 5)
          updateNumericInput(session, "sim_n", value = 10)
@@ -4746,7 +4744,7 @@ npva <- function(...) {
          updateNumericInput(session, "inipopyrs_1", value = 2012)
          updateNumericInput(session, "inipopval_1", value = 791)
          updateSliderInput(session, "impacts_year", value = c(2030, 2050))
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "impacts_relative",
             selected = "relative"
@@ -4771,19 +4769,19 @@ npva <- function(...) {
          updateTextInput(session, "runrefname", value = "run3")
          updateSelectizeInput(session, "case_studies", selected = "None")
          updateSelectizeInput(session, "species", selected = "None")
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "run_type",
             selected = "simplescenarios"
          )
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "model_envstoch",
             selected = "deterministic"
          )
-         updateSwitchInput(session, "model_demostoch", value = FALSE)
-         updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
-         updateSwitchInput(session, "model_prodmax", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "model_demostoch", value = FALSE)
+         shinyWidgets::updatePrettyRadioButtons(session, "model_dd", selected = "nodd")
+         shinyWidgets::updateSwitchInput(session, "model_prodmax", value = TRUE)
          updateSliderInput(session, "mbs", value = 2)
          updateSliderInput(session, "afb", value = 4)
          updateNumericInput(session, "npop", value = 3)
@@ -4791,14 +4789,14 @@ npva <- function(...) {
          updateNumericInput(session, "sim_n", value = 8)
          updateNumericInput(session, "nburn", value = 9)
          updateNumericInput(session, "sim_seed", value = 7064)
-         updateSwitchInput(session, "demobase_splitpops", value = FALSE)
-         updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitpops", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "demobase_splitimmat", value = FALSE)
          input$demobase_splitimmat
          updateNumericInput(session, "pr_mn_1", value = 0.7590806)
          updateNumericInput(session, "pr_sd_1", value = 0.1179217)
          updateNumericInput(session, "ad_mn_1", value = 0.9803358)
          updateNumericInput(session, "ad_sd_1", value = 0.0658929)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "inipop_inputformat",
             selected = "breeding.pairs"
@@ -4809,11 +4807,11 @@ npva <- function(...) {
          updateNumericInput(session, "inipopval_1", value = 8375)
          updateNumericInput(session, "inipopval_2", value = 502)
          updateNumericInput(session, "inipopval_3", value = 773)
-         updateSwitchInput(session, "impacts_splitpops", value = FALSE)
-         updateSwitchInput(session, "impacts_splitimmat", value = TRUE)
-         updateSwitchInput(session, "impacts_provideses", value = TRUE)
-         updateSwitchInput(session, "impacts_matchscens", value = TRUE)
-         updatePrettyRadioButtons(
+         shinyWidgets::updateSwitchInput(session, "impacts_splitpops", value = FALSE)
+         shinyWidgets::updateSwitchInput(session, "impacts_splitimmat", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "impacts_provideses", value = TRUE)
+         shinyWidgets::updateSwitchInput(session, "impacts_matchscens", value = TRUE)
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "impacts_relative",
             selected = "relative"
@@ -4833,7 +4831,7 @@ npva <- function(...) {
          updateNumericInput(session, "imp_im_mn_2_1", value = 0.013220849)
          updateNumericInput(session, "imp_im_se_1_1", value = -7.759761e-06)
          updateNumericInput(session, "imp_im_se_2_1", value = 0.0006537367)
-         updatePrettyRadioButtons(
+         shinyWidgets::updatePrettyRadioButtons(
             session,
             "output_agetype",
             selected = "whole.population"
